@@ -7,6 +7,7 @@ from nltk.stem.porter import PorterStemmer
 import nltk
 import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import contractions
 
 # Download NLTK data (only needed once)
 nltk.download('stopwords')
@@ -60,7 +61,7 @@ if app_mode == 'Sentiment Analysis':
                 # Preprocess and predict
 
                 input_x = pd.DataFrame([{
-                    'Summary': text_input2,
+                    'Summary': contractions.fix(text_input2),
                     'char_len': len(text_input2),
                     'exclam': text_input2.count('!'),
                     'quest': text_input2.count('?'),
