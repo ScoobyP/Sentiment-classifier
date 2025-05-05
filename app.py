@@ -32,7 +32,7 @@ app_mode = st.sidebar.radio("Select Project",
 
 @st.cache_resource
 def load_sentiment_model():
-    pipeline = pickle.load(open('sentiment_pipeline5.pkl', 'rb'))
+    pipeline = pickle.load(open('sentiment_pipeline6.pkl', 'rb'))
     return pipeline
 
 # Spam Classifier Page
