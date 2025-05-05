@@ -19,38 +19,6 @@ ps = PorterStemmer()
 sia = SentimentIntensityAnalyzer()
 
 
-# Text preprocessing function
-def text_preprocessing(text):
-    default_stopwords = set(stopwords.words('english'))
-    words_to_keep = {'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'can', "aren't", 'couldn',
-                     "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven',
-                     "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't",
-                     'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't",
-                     'wouldn', "wouldn't", 'no', 'nor', 'not', 'only', 'but', 'from', "although", "even though",
-                     "however", "despite"}
-    custom_stopwords = default_stopwords - words_to_keep
-    # Removing special characters
-
-    cleaned = re.sub(r'[^A-Za-z!?\s]', '', text)
-
-    filtered1 = []
-    for word in word_tokenize(cleaned):
-        if word.lower() not in custom_stopwords:
-            if word.isupper():
-                filtered1.append(word)
-            else:
-                filtered1.append(word.lower())
-
-    filtered2 = []
-    for word2 in filtered1:
-        if word2.isupper():
-            filtered2.append(ps.stem(word2.lower()).upper())
-        else:
-            filtered2.append(ps.stem(word2))
-
-    return ' '.join(filtered2)
-
-
 # Sidebar navigation
 st.sidebar.title('Projects')
 app_mode = st.sidebar.radio("Select Project",
@@ -63,7 +31,7 @@ app_mode = st.sidebar.radio("Select Project",
 
 @st.cache_resource
 def load_sentiment_model():
-    pipeline = pickle.load(open('sentiment_pipeline3.pkl', 'rb'))
+    pipeline = pickle.load(open('sentiment_pipeline5.pkl', 'rb'))
     return pipeline
 
 # Spam Classifier Page
