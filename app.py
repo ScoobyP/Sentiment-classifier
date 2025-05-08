@@ -86,7 +86,7 @@ if app_mode == 'Sentiment Analysis':
                     pass
     with st.expander('Model Limitations'):
         st.write('The above classification model has been trained on a mix of data from - amazon reviews, flight related tweets, IMDB movie reviews and restaurant reviews.\n After extensive datacleaning, preprocessing, vectorizing, hyperparameter tuning and model selection, LogisticRegression with certain hyperparameters was  chosen to be the best ML model on this dataset.')
-        st.write('Still the model may fail on inputs that: \n 1. Clearly belong to one class but seem to be of the opposite. For e.g. - "I couldn\'t be happier." \n 2. Belong to very niche domain/category, or \n 3. Words on which the model is not trained at all. For e.g. - "Exceeded expectations." and \n 4. Double negatives like - "Not bad!" or "He’s not entirely wrong."')
+        st.write('Still the model may fail on inputs that: \n 1. Clearly belong to one class but seem to be of the opposite. For e.g. - "I couldn\'t be happier." \n 2. Belong to very niche domain/category, or \n 3. Words on which the model is not trained at all. For e.g. - "This product is a *game changer*" and \n 4. Double negatives like - "Not bad!" or "He’s not entirely wrong."')
 # Add some styling
 st.markdown("""
 <style>
