@@ -30,7 +30,7 @@ app_mode = st.sidebar.radio("Select Project",
 
 
 
-@st.cache_resource
+#@st.cache_resource
 def load_sentiment_model():
     pipeline = pickle.load(open('sentiment_pipeline5.pkl', 'rb'))
     return pipeline
