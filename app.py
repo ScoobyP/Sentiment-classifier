@@ -32,7 +32,7 @@ app_mode = st.sidebar.radio("Select Project",
 
 #@st.cache_resource
 def load_sentiment_model():
-    pipeline = pickle.load(open('sentiment_pipeline7.pkl', 'rb'))
+    pipeline = pickle.load(open('sentiment_pipeline7-2.pkl copy', 'rb'))
     return pipeline
 
 # Spam Classifier Page
@@ -80,7 +80,7 @@ if app_mode == 'Sentiment Analysis':
 
                 # Show confidence (if your model supports predict_proba)
                 try:
-                    proba = sentiment_pipeline.predict_proba(input_x)[0]
+                    proba = sentiment_pipeline.predict_proba(input_x)
                     st.write(f"Confidence: {max(proba) * 100:.1f}%")
                 except:
                     pass
