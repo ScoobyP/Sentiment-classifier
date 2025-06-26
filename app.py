@@ -29,7 +29,7 @@ app_mode = st.sidebar.radio("Select Project",
 
 @st.cache_resource
 def load_sentiment_model():
-    pipeline = pickle.load(open('sentiment_pipeline7-2.pkl copy', 'rb'))
+    pipeline = pickle.load(open('sentiment_pipeline8.pkl', 'rb'))
     return pipeline
 
 # Spam Classifier Page
@@ -63,7 +63,7 @@ if app_mode == 'Sentiment Analysis':
                     'exclam': text_input2.count('!'),
                     'quest': text_input2.count('?'),
                     'fs': text_input2.count('.'),
-                    'vader_score': sia.polarity_scores(text_input2)['compound']
+                    'vader_score': sia.polarity_scores(text_input2)['compound']* (4.6279433295293515 if len(text_input2.split()) <= 15 and sia.polarity_scores(text_input2)['compound'] != 0 else 1.0)
                 }])
 
                 result2 = sentiment_pipeline.predict(input_x)[0]
@@ -77,7 +77,7 @@ if app_mode == 'Sentiment Analysis':
 
                 # Show confidence (if your model supports predict_proba)
                 try:
-                    proba2 = sentiment_pipeline.predict_proba(input_x)[0]
+                    proba2 = sentiment_pipeline.decision_function(input_x)
                     st.write(f"Confidence: {max(proba2) * 100:.1f}%")
                 except:
                     pass
