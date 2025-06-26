@@ -1,5 +1,7 @@
-streamlit
-pandas
-nltk
+streamlit~=1.44.1
+pandas~=2.2.3
+nltk~=3.9.1
 scikit-learn
-contractions
+contractions~=0.1.73
+
+joblib~=1.4.2
