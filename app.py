@@ -30,7 +30,7 @@ app_mode = st.sidebar.radio("Select Project",
 
 @st.cache_resource
 def load_sentiment_model():
-    pipeline = joblib.load(open('sentiment_pipeline9.pkl', 'rb'))
+    pipeline = joblib.load('sentiment_pipeline10.pkl')
     return pipeline
 
 # Spam Classifier Page
