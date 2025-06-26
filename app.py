@@ -9,7 +9,6 @@ import joblib
 
 # Download NLTK data
 nltk.download('stopwords')
-nltk.download('punkt')
 nltk.download('punkt_tab')
 nltk.download('vader_lexicon')
 
