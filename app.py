@@ -6,7 +6,7 @@ import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import contractions
 
-# Download NLTK data (only needed once)
+# Download NLTK data
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('punkt_tab')
