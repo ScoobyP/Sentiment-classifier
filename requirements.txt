@@ -1,6 +1,6 @@
 streamlit==1.44.1
 pandas==2.2.3
 nltk==3.8.1
-scikit-learn==1.2.2
+
 contractions==0.1.73
 joblib==1.4.2
