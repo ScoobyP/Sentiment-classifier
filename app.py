@@ -6,6 +6,9 @@ import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import contractions
 import joblib
+import sklearn
+
+st.write("Using scikit-learn version:", sklearn.__version__)
 
 # Download NLTK data
 nltk.download('stopwords')
