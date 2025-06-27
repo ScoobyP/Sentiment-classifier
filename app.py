@@ -61,7 +61,7 @@ if app_mode == 'Sentiment Analysis':
                 # Preprocess and predict
 
                 input_x = pd.DataFrame([{
-                    'Summary': contractions.fix(text_input2),
+                    'Summary': text_input2,
                     'char_len': len(text_input2),
                     'exclam': text_input2.count('!'),
                     'quest': text_input2.count('?'),
