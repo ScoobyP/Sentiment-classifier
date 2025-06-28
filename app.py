@@ -11,9 +11,16 @@ import sklearn
 
 
 # Download NLTK data
-nltk.download('stopwords')
-nltk.download('punkt_tab')
-nltk.download('vader_lexicon')
+def safe_download(package):
+    try:
+        nltk.data.find(f'tokenizers/{package}' if package == 'punkt' else f'corpora/{package}')
+    except LookupError:
+        nltk.download(package)
+
+
+safe_download('punkt_tab')
+safe_download('stopwords')
+safe_download('vader_lexicon')
 
 # Initialize stemmer
 ps = PorterStemmer()
